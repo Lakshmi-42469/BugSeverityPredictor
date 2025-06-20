@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import joblib
+import os
 '''flask - a lightweight python frame work to build web apps
 render_template - loads html from the templates/ folder
 req -  gets data from the user(via form)
