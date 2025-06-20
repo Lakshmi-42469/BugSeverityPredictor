@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bug Severity Predictor</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background-color: #f0f0f0; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        textarea { width: 100%; height: 100px; font-size: 16px; }
+        button, .clear-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+        }
+        .clear-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .result { margin-top: 20px; font-size: 20px; color: green; }
+    </style>
+    <script>
+        function clearForm() {
+            document.querySelector('textarea[name="bug_description"]').value = "";
+            document.querySelector('.result').innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Bug Severity Predictor</h2>
+        <form method="post">
+            <label>Enter Bug Description (one per line):</label><br>
+            <textarea name="bug_description" required></textarea><br><br>
+            <button type="submit">Predict Severity</button>
+            <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
+        </form>
 
+        {% if prediction %}
+            <div class="result">
+                Predicted Severity:<br>
+                <strong>{{ prediction | safe }}</strong>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
