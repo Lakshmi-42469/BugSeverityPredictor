@@ -7,8 +7,8 @@ joblib - used to load your trained Ml model and vectorizer
 '''
 app = Flask(__name__)
 
-model = joblib.load("D:/560/severity_model.pkl")
-vectorizer = joblib.load("D:/560/vectorizer.pkl")
+model = joblib.load("severity_model.pkl")
+vectorizer = joblib.load("vectorizer.pkl")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
